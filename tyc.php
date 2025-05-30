@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones - Ecomovi</title>
     <style>
-    .borde-verde {
-        border: 2px solid #00FF00FF;
-        /* Verde clarito */
-        box-shadow: 0 0 40px #05FF05FF;
-        /* Sombrilla verde */
+
+        @keyframes parpadeoVerde {
+    0%, 100% {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #05FF05FF, 0 0 15px #00ff00;
+        border-color: #05FF05FF;
     }
+    50% {
+        box-shadow: 0 0 5px #00aa00, 0 0 10px #00aa00;
+        border-color: #00aa00;
+    }
+}
+
+.borde-verde {
+    border: 3px solid #05FF05FF;
+    box-shadow: 0 0 5px #05FF05FF;
+    animation: parpadeoVerde 2.5s infinite;
+}
+
 
     body {
         height: 100vh;
@@ -135,7 +147,7 @@
     </a>
 
     <header>
-        Términos y Condiciones - Ecomovi
+        Términos y Condiciones - EcomoviStop
     </header>   
     <div class="container">
         <div class="sidebar borde-verde">
@@ -165,14 +177,14 @@
         </div>
 
         <div class="content borde-verde">
-            <h2 id="aspectos">1. ASPECTOS GENERALES</h2>
+            <h2 id="aspectos">1. Aspectos Generales</h2>
             <p>
                 Desarrollar la página web ECO-MOVI, cumpliendo de manera integral con todos los requerimientos
                 funcionales y técnicos establecidos, con el fin de ofrecer una plataforma eficiente, intuitiva y
                 alineada con los objetivos del proyecto.
             </p>
 
-            <h2 id="Objetivo">1.2 OBJETIVO</h2>
+            <h2 id="Objetivo">1.2 Objetivo</h2>
             <p>
                 Desarrollar la página web ECO-MOVI, cumpliendo de manera integral con todos los requerimientos
                 funcionales y técnicos establecidos, con el fin de ofrecer una plataforma eficiente, intuitiva y
