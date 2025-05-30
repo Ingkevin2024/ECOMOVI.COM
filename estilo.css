@@ -1,0 +1,134 @@
+body {
+  font-family:  "Ribeye Marrow", serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('fondoauto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgb(0, 0, 0);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-weight: bold;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  font-size: 45px;
+}
+
+ul li {
+  display: inline-block;
+  padding: 8px 28px;
+}
+
+a {
+  color: rgb(255, 247, 247);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #000000;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.user-info {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.user-data {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.vehicles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.vehicle {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.vehicle img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.vehicle-info {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(17, 24, 39, 0.9);;
+  color: #fff;
+  padding: 80px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.vehicle:hover .vehicle-info {
+  display: block;
+}
+   

@@ -1,0 +1,294 @@
+body {
+    font-family: "Ribeye Marrow", serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(fondoauto.jpg);
+    background-color: #cfdbd6;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    top: 20%;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+    background: #28a745;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #33b11f92;
+}
+
+.btn-back {
+    background: #125c07bc;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-back:hover {
+    background: #71e95e92;
+}
+
+h1 {
+    color: #fff;
+}
+
+.par {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.par p {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.card-contanier {
+    padding: 10px;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.list-group-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.list-group-item .btn {
+    margin-left: auto;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input,
+form textarea,
+form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+form button[type="submit"] {
+    background: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 10px;
+}
+
+form button[type="submit"]:hover {
+    background: #218838;
+}
+
+.container {
+    max-width: 400px;  /* Reduced from 800px */
+    margin: 20px auto; /* Reduced top/bottom margin from 40px */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;     /* Reduced from 30px */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    max-width: 150px;  /* Reduced from 500px */
+    margin: 20px auto; /* Reduced from 40px */
+    padding: 15px;     /* Reduced from 20px */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 10px; /* Reduced from 20px */
+}
+
+/* Adjust input sizes for better fit */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="file"],
+select {
+    width: 95%;      /* Slightly reduced from 100% */
+    padding: 8px;    /* Reduced from 10px */
+}
+
+h2 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="file"],
+select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+select {
+    background-color: white;
+}
+
+input[disabled] {
+    background-color: rgba(245, 245, 245, 0.7);
+    cursor: not-allowed;
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;  /* Changed from -80px to positive value */
+    padding-bottom: 20px;  /* Added padding at the bottom */
+}
+
+.boton-guardar1 {
+    background: #28a745;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;  /* Added margin at the bottom */
+}
+
+.boton-volver {
+    background: #125c07bc;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    position: fixed;  /* Fixed position */
+    top: 20px;       /* Distance from top */
+    left: 20px;      /* Distance from left */
+    z-index: 1000;   /* Ensures button stays on top */
+    width: auto;     /* Auto width instead of fit-content */
+    margin: 0;       /* Remove existing margins */
+}
+
+.boton-volver:hover {
+    background: #71e95e92;
+}
+
+#pointsInfo {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="file"],
+    select {
+        font-size: 14px;
+    }
+
+    .boton-guardar1 {
+        width: 100%;
+    }
+}

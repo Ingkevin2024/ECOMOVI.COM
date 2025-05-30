@@ -1,0 +1,207 @@
+/* === ESTILO GLOBAL === */
+body {
+    font-family: "Ribeye Marrow", serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(fondoauto.jpg);
+    background-color: #cfdbd6;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000;
+    overflow-x: hidden;
+}
+
+/* === LOGO === */
+.logo {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    height: auto;
+    z-index: 1000;
+}
+
+/* === TÍTULO PRINCIPAL === */
+.titulo {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* === CONTENEDOR GENERAL === */
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* === ENCABEZADO Y PIE DE PÁGINA === */
+.header, .footer {
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* === ESTILO DE LAS CARTAS === */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px
+}
+
+.card {
+    width: 280px;
+    height: 450px;
+    background: #e0f0e9;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px #00000092;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Efecto al pasar el cursor por una carta */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Elementos dentro de la carta */
+.card img, .card h3, .card .btn {
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 80px;
+    height: auto;
+}
+
+.card h2 {
+    margin: 10px 0;
+    color: #000;
+}
+
+.card .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #125c07bc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Icono dentro del botón */
+.card .btn-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Efecto hover en botón */
+.btn:hover {
+    background-color: #71e95e92;
+}
+
+/* === PIE DE PÁGINA === */
+footer {
+    background-color: #000;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    font-family: 'Times New Roman', serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.footer-container > div {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+}
+
+h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+p, a {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contacto con estilo especial */
+.contacto a {
+    color: #22bd68;
+    font-weight: bold;
+}
+
+/* === REDES SOCIALES === */
+.redes-sociales {
+    text-align: right;
+}
+
+.redes-sociales .social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.redes-sociales img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.redes-sociales img:hover {
+    transform: scale(1.1);
+}
+
+/* === ESTILO RESPONSIVO === */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .titulo {
+        font-size: 4vw;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .redes-sociales {
+        text-align: center;
+    }
+}

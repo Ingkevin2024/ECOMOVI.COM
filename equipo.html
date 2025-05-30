@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Nuestro Equipo - ECO-MOVI</title>
+    <style>
+       * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background: url(images/fonfi.jpeg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+    }
+    
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+        }
+        
+        .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en la cuadrícula */
+    gap: 20px;
+    padding: 60px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.team-card {
+    background-color:  #e6f3d959; ;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.team-card:nth-child(4),
+.team-card:nth-child(5) {
+    grid-column: span 1; /* Mantén las tarjetas en una sola columna */
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(1, 1fr); /* En dispositivos móviles, una sola columna */
+    }
+}
+     
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #2ecc71;
+        }
+        
+        .team-card h4 {
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+            color: #000000;
+        }
+        
+        .role {
+            color:white;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .contact, .email {
+            margin: 5px 0;
+            color: white;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 16px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #1ebc5c;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+           
+            color: white;
+            margin-top: 50px;
+        }
+        
+     
+.back-button {
+    position: fixed; /* Posición fija en pantalla */
+    top: 20px; /* Desde la parte superior */
+    left: 20px; /* Desde la parte izquierda */
+    z-index: 1000; /* Prioridad para que esté siempre visible */
+    background-color: #4CAF50; /* Verde de fondo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo mano */
+    display: flex; /* Usa flex para alinear íconos y texto */
+    align-items: center; /* Alinea verticalmente */
+    gap: 8px; /* Espacio entre ícono y texto */
+    transition: all 0.3s ease; /* Animación suave */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+.back-button:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al hacer hover */
+    color: white; /* Mantiene el texto blanco */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.back-button img {
+    width: 20px; /* Ancho del ícono */
+    height: 20px; /* Alto del ícono */
+}
+        </style>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Botón de regreso a la página principal -->
+    <a href="paginapri.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Regresar
+    </a>
+    <br><br>
+
+    <main>
+        <h2>NUESTRO EQUIPO</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="equipo/WhatsApp Image 2025-05-25 at 12.48.59 PM.jpeg" alt="Team Member 1">
+                <h4>Kevin Stiven Rivera Quintero</h4>
+                <p class="role">Desarrollador Frontend</p>
+                <p class="contact">📱 3202295786</p>
+                <p class="email">ingkevinrivera25@gmail.com</p>
+                <a href="https://wa.me/3202295786" class="contact-btn" target="_blank">
+                    <i class="whatsapp-icon">📱</i> Contactar por WhatsApp
+                </a>
+            </div>
+
+            <div class="team-card">
+                <img src="equipo/Erika.jpeg" alt="Team Member 2">
+                <h4>Erika Dallana Botero Forero</h4>
+                <p class="role">Desarrolladora Backend</p>
+                <p class="contact">📱 3229483213</p>
+                <p class="email">boteroerika64gmail.com</p>
+                <a href="https://wa.me/3229483213" class="contact-btn" target="_blank">
+                    <i class="whatsapp-icon">📱</i> Contactar por WhatsApp
+                </a>
+            </div>
+
+            <!-- First two cards remain unchanged -->
+
+            <div class="team-card">
+                <img src="equipo/WhatsApp Image 2025-05-25 at 12.48.59 PM (1).jpeg" alt="Team Member 3">
+                <h4>Kevin Giovanny Sanchez Vaca </h4>
+                <p class="role">Desarrollador Frontend</p>
+                <p class="contact">📱 3132493379</p>
+                <p class="email">giovannysanchezvaca@gmail.com</p>
+                <a href="https://wa.me/3132493379" class="contact-btn" target="_blank">
+                    <i class="whatsapp-icon">📱</i> Contactar por WhatsApp
+                </a>
+            </div>
+
+            <div class="team-card">
+                <img src="equipo/NATALIA.jpg" alt="Team Member 4">
+                <h4>Natalia Lozano Coronado</h4>
+                <p class="role">Desarrolladora Backend </p>
+                <p class="contact">📱 3152932370</p>
+                <p class="email">natalia.lozano124@gmail.com</p>
+                <a href="https://wa.me/3152932370" class="contact-btn" target="_blank">
+                    <i class="whatsapp-icon">📱</i> Contactar por WhatsApp
+                </a>
+            </div>
+
+            <div class="team-card">
+                <img src="equipo/SEBASTIAN(2).jpeg.png" alt="Team Member 5">
+                <h4>Sebastian Leon Garcia</h4>
+                <p class="role">Desarrollador Backend</p>
+                <p class="contact">📱 3233317642</p>
+                <p class="email">sebastianleong15@gmail.com</p>
+                <a href="https://wa.me/3233317642" class="contact-btn" target="_blank">
+                    <i class="whatsapp-icon">📱</i> Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ECO-MOVI. Todos los derechos reservados.</p>
+
+</body>
+</html>

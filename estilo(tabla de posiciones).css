@@ -1,0 +1,342 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(fondoauto.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgb(0, 0, 0);
+}
+header nav {
+
+    background-color: #c1090900;
+    color: #fff;
+    padding: 10px 30px; /* Ajusta el padding para separar del borde */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.titulo-recompensa {
+    font-size: 50px;
+    font-weight: bold;
+    position: sticky;
+    top: 20px;
+}
+
+
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 3px; /* Aumenta la separación entre enlaces */
+    font-size: 1.5rem;
+    margin-left: 80px;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta automáticamente las columnas */
+    gap: 25px;
+    padding: 20px;
+}
+
+.recompensa {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px #00FF00; 
+}
+
+.recompensa img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.recompensa h3 {
+    margin: 10px 0;
+}
+
+.recompensa button {
+    padding: 8px 16px;
+    background-color:  #28a745;;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Botón Agregar */
+.botonre {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Estilo Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-shadow: 0 0 10px #00FF00; 
+    
+}
+
+.modal-contenido {
+    background-color: #fff;
+    padding: 25px;
+    width: 50%;
+    margin: 100px auto;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid #00FF00; /* Borde de 2px de color verde */
+  box-shadow: 0 0 10px #00FF00; /* Sombra verde alrededor del borde */
+
+}
+
+.modal-contenido .cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-contenido form input,
+.modal-contenido form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-contenido button {
+    padding: 10px 20px;
+    background-color: #28a745;;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+titulo{
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    font-family: "Ribeye Marrow", serif;
+    text-align: center;
+    flex-grow: 1;    
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: fade-in 2s ease-in-out;
+}
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cerrar {
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.boton-ver {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.boton-ver:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+.ventana-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ventana-modal-contenido {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cerrar-modal {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgb(255, 255, 255);
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #329c22;
+    color: white;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+/* Estilos para el checkbox */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #28a745; /* Color verde */
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
+/* Estilos para el botón de devolver */
+.boton-devolver {
+    padding: 10px 20px;
+    background-color: #22ba04; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Estilo cuando el botón está deshabilitado */
+.boton-devolver:disabled {
+    background-color: #cd0d0d; /* Gris */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Hover solo cuando está habilitado */
+.boton-devolver:not(:disabled):hover {
+    background-color: #307640; /* Rojo oscuro */
+}
+
+    .boton-redimir {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .boton-redimir:hover {
+        background-color: #219150;
+    }
+
+    .boton-redimir:disabled {
+        background-color: #46cd5862;
+        cursor: not-allowed;
+    }
+
+    .boton-devolver {
+        background-color: #e67e22;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-right: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .boton-devolver:hover {
+        background-color: #cf711c;
+    }
+

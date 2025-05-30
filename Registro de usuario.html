@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar el envío predeterminado
+    
+        var password = document.getElementById("password").value;
+        var passwordConfirmation = document.getElementById("passwordConfirmation").value;
+    
+        // Condiciones de la contraseña (ejemplo)
+        if (password.length < 8) {
+            alert("La contraseña debe tener al menos 8 caracteres.");
+            return false;
+        }
+    
+        if (password !== passwordConfirmation) {
+            alert("Las contraseñas no coinciden.");
+            return false;
+        }
+    
+        // Si la validación es exitosa, permitir el envío del formulario
+        document.getElementById("myForm").submit();
+    });
+</script>
+    
+    <script>
+        function calcularEdad(fechaNacimiento) {
+            const hoy = new Date();
+            const fechaNaci = new Date(fechaNacimiento);
+            let edad = hoy.getFullYear() - fechaNaci.getFullYear();
+            const mes = hoy.getMonth() - fechaNaci.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNaci.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+
+        function validarFormulario(event) {
+            const fechaNacimiento = document.getElementById('fecha_nacimiento').value;
+            const edad = calcularEdad(fechaNacimiento);
+            const numDocumento = document.getElementById('num_doc_usu').value;
+        
+            if (edad < 18) {
+                alert('Debes ser mayor de 18 años para registrarte.');
+                event.preventDefault();
+                return;
+            }
+        
+            if (numDocumento < 0) {
+                alert('El número de documento no puede ser negativo.');
+                event.preventDefault();
+                return;
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            background: url(images/fonfi.jpeg) no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0);
+            z-index: -1;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+        }
+
+        .card {
+            background: #e6f3d97e;
+            padding: 20px;
+            border-radius: 0.6rem;
+            max-width: 570px;
+            margin-bottom: 60px;
+            margin-top: 60px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            color: grey;
+            background-color: white;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-button img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        @keyframes brillo {
+            0% {
+                border-color: #00ff00;
+                box-shadow: 0 0 5px 1px #00ff00;
+            }
+            50% {
+                border-color: #00ff00;
+                box-shadow: 0 0 15px 6px #00ff00;
+            }
+            100% {
+                border-color: #00ff00;
+                box-shadow: 0 0 5px 1px #00ff00;
+            }
+        }
+
+        .borde-verde {
+            padding: 20px;
+            border: 3px solid #00ff00;
+            border-radius: 15px;
+            box-shadow: 0 0 8px 2px #00ff00;
+            animation: brillo 2s infinite ease-in-out;
+            background-color:#e6f3d97e;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <a href="paginapri.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </a>
+
+    <form action="conexion_bd.php" method="POST" onsubmit="validarFormulario(event)">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="borde-verde">
+                        <h3 class="text-center mb-4"><b>Regístrate:</b></h3>
+                        <div class="p-3">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="nom_usu" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nom_usu" name="nom_usu" placeholder="Ingresa nombre completo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apell_usu" class="form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="apell_usu" name="apell_usu" placeholder="Ingresa apellido completo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tipo_documento" class="form-label">Tipo de Documento:</label>
+                                <select id="tipo_documento" class="form-control" name="tipo_documento" required>
+                                    <option selected disabled>Selecciona una opción</option>
+                                   
+                                    <option value="Pasaporte">Pasaporte</option>
+                                    <option value="Cédula">Cédula de ciudadanía</option>
+                                    <option value="Cédula E">Cédula de extranjería </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="num_doc_usu" class="form-label">Número de Documento:</label>
+                                <input type="number" class="form-control" id="num_doc_usu" name="num_doc_usu" 
+                                       placeholder="Ingresa número de documento" min="0" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa correo electrónico" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono:</label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingresa número de contacto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contrasena" class="form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="contrasena" name="contrasena"
+                                    placeholder="Crea una contraseña"
+                                    required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.">
+                            </div>
+                            
+
+                            <div class="aceptar-condiciones">
+                                <input type="checkbox" id="acepta" name="acepta" required>
+                                <label for="acepta"><a href="tyc.php"> Acepto los términos y condiciones haciendo clic <strong>aquí</strong> </a>.</label>
+                            </div>
+
+                            <input type="hidden" name="rol" value="usuario">
+                            <input type="hidden" name="fecha_registro" value="<?php echo date('Y-m-d H:i:s'); ?>">
+                            <div class="d-grid" style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                                <button type="submit" class="btn btn-primary">Registrarse</button>
+                            </div>
+
+                            
+        
+                            <p class="signin text-center mt-3">¿Ya tienes una cuenta? <a href="INICIOSESION.html">Iniciar sesión</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>

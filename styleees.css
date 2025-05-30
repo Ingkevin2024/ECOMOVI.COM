@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap');
+/* Estilos generales para el título */
+
+
+.titulo {
+  margin-left: 350px;
+  font-family: "Ribeye Marrow", serif;
+}
+h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgb(255, 255, 255);
+  margin-top: center 100em;
+  z-index: 1;
+  }
+
+/* Fondo del body */
+body {
+  background: url(Imgen/FONDOREAL.png) no-repeat center center;
+  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+  margin: 0;
+  padding: 0;
+}
+
+#openPopup{
+  box-shadow: none;
+  
+  
+
+}
+
+.imgheader{
+  width: 90px;
+  margin-top: 10px;
+
+}
+
+.card-container{
+  display: column;
+
+}
+
+/* Estilos generales para las tarjetas */
+.card-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 6em;
+  margin-right: 25em;
+}
+.card-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 6em;
+  margin-right: 25em;
+}
+
+
+/* Contenedor de la tarjeta 2 */
+.card-container2 {
+  margin-top: -200px;
+  margin-left: 30em;
+  
+  
+}
+
+/* Estilos de las tarjetas */
+.card3{
+  background-color: #e6f3d99e; /* Fondo semi-transparente */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  transition: transform 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between; /* Asegura que el contenido esté bien distribuido */
+  align-items: center;
+  
+}
+
+.card4{
+  background-color: #e6f3d99e; /* Fondo semi-transparente */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  transition: transform 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between; /* Asegura que el contenido esté bien distribuido */
+  align-items: center;
+  
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Efecto al pasar el cursor sobre la tarjeta */
+}
+
+/* Estilos para las imágenes dentro de las tarjetas */
+.card1 img {
+  max-width: 60%; /* Asegura que las imágenes no desborden el tamaño de la tarjeta */
+  height: auto;    /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Mantiene la imagen contenida dentro del área de la tarjeta */
+  margin-top: 10px; /* Espaciado superior para que no se pegue al borde superior */
+  border-radius: 5px; /* Asegura bordes redondeados en la imagen */
+ 
+  
+}
+.card2 img {
+  max-width: 50%; /* Asegura que las imágenes no desborden el tamaño de la tarjeta */
+  height: auto;    /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Mantiene la imagen contenida dentro del área de la tarjeta */
+  margin-top: 10px; /* Espaciado superior para que no se pegue al borde superior */
+  border-radius: 5px; /* Asegura bordes redondeados en la imagen */
+  
+}
+.boton-1{
+ align-items: center;
+ background: #e6f3d944;
+
+}
+
+/* Estilos específicos para el botón 2 (tarjetas de acción) */
+.boton-2 {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  background: #e6f3d944;
+}
+
+.boton-2 img {
+  margin-top: 48px;
+  margin-left: -160px;
+}
+
+/* Título */
+.titulo {
+  margin-left: 250px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(255, 255, 255); /* Asegura que el título sea legible */
+}
+
+/* Estilos para la navegación */
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.205); /* Fondo oscuro */
+  padding: 30px;
+  margin-top: -20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav img {
+  height: 60px;
+  margin-top: -20px;
+}
+
+/* Estilos para los enlaces */
+a {
+  text-decoration: none;
+  color: white; /* Color de los enlaces en blanco */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: rgba(0, 0, 0, 0.397);
+  padding: 20px;
+  margin-top: 10%;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+/* Estilos para el pop-up */
+.modal {
+  display: none;
+  position: relative;
+  z-index: 1000;
+  top: -35vw;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #e6f3d97b;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+.modal-content img{
+  position: relative;
+  max-width: 8vw;
+
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+}
+.icon-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 150px;
+  margin-top: -20px;
+  box-shadow: 200px;
+  background: rgba(0, 0, 0, 0.315);
+  margin-left: auto;
+  margin-right: auto;
+  
+ }
+ 
+ 
+ 

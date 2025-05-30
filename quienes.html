@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+    <title>¿Quienes-Somos?</title>
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            background: url(images/fonfi.jpeg) no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0);
+        z-index: -1;
+    }
+    
+       
+        /* Contenido principal */
+        #quienes-somos {
+            margin-top: 70px;
+            padding: 2rem;
+            
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            
+        }
+        
+        .p1 {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .divLogo {
+            margin-left: 3%;
+        }
+        
+        .divLogo img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        
+        .divP {
+            width: 980px;
+            margin-left: 5%;
+            margin-right: 2%;
+        }
+        
+        .text-content {
+            background-color: #e6f3d97e;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .text-content h3 {
+            color:rgb(2, 126, 10);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .text-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 19px;
+        }
+        
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        /* Botón animado */
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .animated-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background: rgb(2, 126, 10);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .animated-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.6);
+            background: rgb(2, 126, 10);
+        }
+        
+        .animated-button .icon {
+            margin-left: 10px;
+            font-size: 1.3em;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Footer */
+        footer {
+          
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 2px solid #effcf6;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 991.98px) {
+            .list {
+                height: auto;
+                padding: 0.5rem;
+            }
+        
+            .list img {
+                height: 60px;
+            }
+        }
+        
+.back-button {
+    position: fixed; /* Posición fija en pantalla */
+    top:20px; /* Desde la parte superior */
+    left: 20px; /* Desde la parte izquierda */
+    z-index: 1000; /* Prioridad para que esté siempre visible */
+    background-color: #4CAF50; /* Verde de fondo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo mano */
+    display: flex; /* Usa flex para alinear íconos y texto */
+    align-items: center; /* Alinea verticalmente */
+    gap: 8px; /* Espacio entre ícono y texto */
+    transition: all 0.3s ease; /* Animación suave */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+.back-button:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta el tamaño al hacer hover */
+    color: white; /* Mantiene el texto blanco */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.back-button img {
+    width: 20px; /* Ancho del ícono */
+    height: 20px; /* Alto del ícono */
+}
+
+        
+        </style>
+</head>
+
+
+<body>
+ 
+    
+    <!-- Botón de regreso a la página principal -->
+    <a href="paginapri.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Regresar
+    </a>
+
+    <section id="quienes-somos">
+        <div class="container">
+            <h2><b>¿QUIENES SOMOS?</b></h2>
+            <div class="p1">
+                <div class="divLogo">
+                    <img src="Imgen/logofinal.png" alt="ECO-MOVI Logo">
+                </div>
+                <div class="divP">
+                    <div class="text-content">
+                        <b><h3>Nuestra Historia</h3></b>
+                        <p><b>
+                            Somos un software que busca ayudar en la disminución de la contaminación causada por los vehículos
+                            a través de alternativas sostenibles. Estamos enfocados en fomentar la conciencia ciudadana,
+                            proporcionando incentivos a los ciudadanos que implementen el pico y placa voluntario.
+                        </p></b>
+                        
+                        <p><b>
+                            La iniciativa fue planteada en 2023 por un empresario del país que observó la gran contaminación que producían
+                            los automotores. Al pasar el tiempo, su idea fue materializada en un proyecto que busca incentivar a los
+                            usuarios a contribuir con el cuidado del medio ambiente.
+                        </p></b>
+
+                        <h3>Nuestros Valores</h3>
+                        <p><b>
+                            Valoramos la responsabilidad ambiental, la sostenibilidad y el compromiso con la ciudad y el país. Nuestro
+                            grupo está conformado por 5 jóvenes programadores y un reconocido empresario, cada uno aporta ideas
+                            fundamentales para la conformación de dicho proyecto.
+                        </p></b>
+
+                        <h3>Misión</h3>
+                        <p><b>
+                            Fomentar la sostenibilidad y el compromiso ambiental en la ciudad de Medellín mediante un software que promueva la
+                            reducción voluntaria de la huella de carbono, incentivando el uso de medios de transporte alternativos y recompensando a
+                            los usuarios que logren mayor participación en el programa de pico y placa voluntario.
+                        </p></b>
+
+                        <h3>Visión</h3>
+                        <p><b>
+                            Para 2027 ser la plataforma líder a nivel nacional para promover la movilidad sostenible, impulsando la reducción voluntaria de emisiones de
+                            dióxido de carbono a través de la gestión del pico y placa. Aspiramos a crear una comunidad comprometida con el medio ambiente, donde los usuarios se sientan
+                            motivados a participar activamente y sean premiados por sus esfuerzos en pro de un aire más limpio y una ciudad más verde.
+                        </p></b>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="equipo.html" class="animated-button">
+                            ¡Conoce al equipo de Desarrolladores!
+                            <span class="icon">🌱</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="info">
+                <h3>Centro Administrativo:</h3>
+                <p>Lunes a viernes de 7:30 a.m. a 12:00 a.m. y de 1:30 p.m. a 5:00 p.m.</p>
+                <p>Sábado y domingo de 8:00 a.m. a 12 a.m.</p>
+            </div>
+            <div class="contacto">
+                <h3>Correo institucional:</h3>
+                <p>atencion.ciudadana@ecomovi.gov.co</p>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <p>ECO-MOVI</p>
+                <div class="social-icons">
+                    <a href="#"><img src="imagess/face.jpeg" alt="Facebook"></a>
+                    <a href="#"><img src="imagess/twiter.jpeg" alt="X"></a>
+                    <a href="#"><img src="imagess/insta.jpeg" alt="Instagram"></a>
+                    <a href="#"><img src="imagess/yout.jpeg" alt="YouTube"></a>
+                    <a href="#"><img src="imagess/tiktok.jpg" alt="TikTok"></a>
+                    <a href="https://wa.me/3202295786"><img src="imagess/WHATS.jpg" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

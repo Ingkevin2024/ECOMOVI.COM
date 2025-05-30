@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Vehículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        background: url(images/fonfi.jpeg) no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: relative;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0);
+        z-index: -1;
+      }
+
+      .container {
+        background-color:#e6f3d97e;
+        padding: 20px;
+        border-radius: 0.6rem;
+        max-width: 590px;
+        margin: 60px auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+        color: black;
+      }
+
+      .col-12 button {
+        border: none;
+        outline: none;
+        background-color: #28a745;
+        padding: 12px 30px;
+        border-radius: 25px;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .col-12 button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+      }
+
+      .col-12 button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
+      }
+
+      .btn-secondary {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        border: none;
+        outline: none;
+        background-color: #4CAF50;
+        padding: 12px 25px;
+        border-radius: 25px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        text-decoration: none;
+        z-index: 1000;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      .btn-secondary:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+      }
+
+      .btn-secondary img {
+        width: 20px;
+        height: 20px;
+      }
+
+      @keyframes brillo {
+        0% {
+          box-shadow: 0 0 5px 1px #00ff00;
+        }
+
+        50% {
+          box-shadow: 0 0 15px 6px #00ff00;
+        }
+
+        100% {
+          box-shadow: 0 0 5px 1px #00ff00;
+        }
+      }
+
+      .borde-verde {
+        padding: 20px;
+        border: 3px solid #00ff00;
+        border-radius: 15px;
+        box-shadow: 0 0 8px 2px #00ff00;
+        animation: brillo 2s infinite ease-in-out;
+      }
+    </style>
+
+
+  </head>
+
+  <body>
+    
+    <div class="container mt-5 mx-auto borde-verde">
+        <h2 class="text-center mb-4"><b>Registra tu Vehículo:</b></h2>
+        <form id="formRegistroV" action="registrar_vehiculo.php" method="POST" enctype="multipart/form-data">
+          <div class="row">
+            <!-- Existing placa field -->
+           <div class="col-12 col-md-6 mb-3">
+  <label for="plac_veh" class="form-label">Placa del vehículo:</label>
+  <input type="text" class="form-control" id="plac_veh" name="plac_veh" required
+    pattern="[A-Za-z0-9-]*" maxlength="7" placeholder="ingrese placa del vehículo" />
+</div>
+
+<script>
+  document.getElementById('plac_veh').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/-/g, ''); // Eliminar guiones previos
+    if (value.length > 3) {
+      value = value.slice(0, 3) + '-' + value.slice(3);
+    }
+    e.target.value = value.toUpperCase(); // Convertir todo a mayúsculas
+  });
+</script>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="tip_veh" class="form-label">Tipo de vehículo:</label>
+              <select id="tip_veh" name="tip_veh" class="form-select" required>
+                <option value="" disabled selected>
+                  Seleccione tipo de vehículo
+                </option>
+                <option value="carro"><Canvas>CARRO</Canvas></option>
+                <option value="moto">MOTO</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="tarj_prop_veh" class="form-label">Tarjeta de propiedad:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tarj_prop_veh"
+                name="tarj_prop_veh"
+                required
+                placeholder="ingrese número tarjeta de propiedad"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="tecno_m" class="form-label">Tecnomecánica +Foto:</label>
+              <input
+                type="number"
+                class="form-control mb-3"
+                id="tecno_m"
+                name="tecno_m"
+                placeholder="ingrese número de tecnomecánica"
+                required
+              />
+              <input
+                type="file"
+                class="form-control"
+                id="foto_tecno"
+                name="foto_tecno"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="soat" class="form-label">SOAT +Foto:</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="soat"
+                name="soat"
+                placeholder="ingrese número de soat"
+                required
+              />
+              <input
+                type="file"
+                class="form-control"
+                id="foto_soat"
+                name="foto_soat"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="mar_veh" class="form-label">Marca del vehículo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="mar_veh"
+                name="mar_veh"
+                required
+                placeholder="ingrese marca del vehículo "
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="lin_veh" class="form-label">Línea del vehículo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lin_veh"
+                name="lin_veh"
+                required
+                placeholder="ingrese linea del vehículo "
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="color_veh" class="form-label">Color del vehículo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="color_veh"
+                name="color_veh"
+                required
+                placeholder="ingrese color del vehículo"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="num_motor_veh" class="form-label">Número de motor:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="num_motor_veh"
+                name="num_motor_veh"
+                required
+                placeholder="ingrese número del motor del vehículo"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="clase_veh" class="form-label">Clase de vehículo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="clase_veh"
+                name="clase_veh"
+                required
+                placeholder="ingrese clase del vehículo"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="combus_veh" class="form-label">Combustible:</label>
+              
+            
+           <select name="combus_veh" id="combus_veh" class="form-select" required>
+
+  <option value="">Seleccione</option>
+  <option value="Gasolina">Gasolina</option>
+  <option value="Diésel">Diésel</option>
+  
+</select>
+</div>
+
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="capaci_veh" class="form-label">Capacidad:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="capaci_veh"
+                name="capaci_veh"
+                required
+                placeholder="ingrese capacidad del vehículo"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="num_chasis_veh" class="form-label">Número de chasis:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="num_chasis_veh"
+                name="num_chasis_veh"
+                required
+                placeholder="ingrese número de chasis del vehículo"
+              />
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="model_veh" class="form-label">Modelo del vehículo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="model_veh"
+                name="model_veh"
+                required
+                placeholder="ingrese modelo del vehículo"
+              />
+            </div>
+            
+      <div class="col-12 col-md-6 mb-3">
+       <div class="col-12 col-md-6 mb-3">
+    <label for="num_doc_usu" class="form-label">Número de documento:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="num_doc_usu"
+      name="num_doc_usu"
+      required
+      placeholder="Ingrese su número de documento"
+    />
+  </div>
+
+  <div class="col-12 col-md-6 mb-3">
+    <label for="confirmar_doc" class="form-label">Confirmar número de documento:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="confirmar_doc"
+      name="confirmar_doc"
+      required
+      placeholder="Confirme su número de documento"
+    />
+  </div>
+
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-100">
+                Registrar Vehículo
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <a href="iniusu.html" class="btn btn-secondary">
+              <img src="profil.png" alt="Volver">
+              Volver
+            </a>
+          </div>
+        </form>
+      </div>
+
+
+
+      <script>
+        document.getElementById('formRegistroV').addEventListener('submit', function(e) {
+          const placa = document.getElementById('plac_veh').value.trim();
+          const numericInputs = [
+              'tecno_m',
+              'soat',
+              'num_motor_veh',
+              'capaci_veh',
+              'num_chasis_veh',
+              'model_veh'
+          ];
+      
+          // Check for negative numbers
+          for (let inputId of numericInputs) {
+              const input = document.getElementById(inputId);
+              const value = input.value.trim();
+              if (value < 0) {
+                  e.preventDefault();
+                  alert('No se permiten números negativos en ningún campo numérico');
+                  input.focus();
+                  return false;
+              }
+          }
+      
+          if (!placa) {
+              e.preventDefault();
+              alert('Por favor, ingrese la placa del vehículo');
+              return false;
+          }
+      });
+      </script>
+      <script>
+  document.getElementById('formularioRegistro').addEventListener('submit', function(e) {
+    const doc = document.getElementById('num_doc_usu').value;
+    const confirmar = document.getElementById('confirmar_doc').value;
+
+    if (doc !== confirmar) {
+      e.preventDefault();
+      alert('Los números de documento no coinciden.');
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('input[type="text"]');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        input.value = input.value.toUpperCase();
+      });
+    });
+  });
+</script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+  </html>

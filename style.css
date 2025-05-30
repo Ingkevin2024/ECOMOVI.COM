@@ -1,0 +1,182 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background: url(images/fonfi.jpeg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+/* Estilo para el contenedor del menú de navegación */
+.list {
+    padding: 1px;
+    max-height: 7vw;
+    border:1px solid  #effcf6;
+}
+
+.list a{
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: rgb(235, 231, 231);
+    box-shadow: #ebe3e3;
+    text-align: center;
+    position: relative;
+    top: 2.5vw; 
+   
+  }
+
+
+.list a:hover{
+    color:  #08291c;
+    text-decoration: none;
+}
+
+
+  
+  ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 10px 0px;
+   
+
+    }
+
+
+.list img {
+    margin-top: -30px;
+    margin-left: -90px;
+    padding: 2px;
+    height: 13vw;
+}
+
+
+ 
+    .logo{
+        max-width: 120px;
+        height: auto;
+       
+      }
+
+/* Estilo del contenedor del formulario */
+.form-container {
+    width: 320px;
+    border-radius: 0.8rem;
+    background:#e6f3d97b;
+    padding: 14px;
+    color: rgb(10, 10, 10);
+    margin: 25rem ;
+    text-align: center;
+    /* Centrado el contenido */
+    margin-top: 8px;
+    /* Ajusté el margen superior para separarlo del menú */
+   
+
+}
+
+/* Título centrado */
+.title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilos adicionales para los formularios */
+.form {
+    margin-top: 2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 85%;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(0, 0, 0);
+    outline: 0;
+    padding: 0.75rem 1rem;
+    color: rgb(14, 14, 14);
+}
+
+/* Estilo de los enlaces de olvido de contraseña y registro */
+.forgot a,
+.signup a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Estilos para las redes sociales */
+.social-message {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.line {
+    height: 1px;
+    flex: 1;
+    background-color: rgb(0, 0, 0);
+}
+
+.social-message .message {
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(0, 0, 0);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+/* Botón de acción */
+.botoncito-2 {
+    background-color: #28a745;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+
+.btn-secondary {
+    border: none;
+    outline: none;
+    background-color: #125c07bc;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transform: 0.3s ease;
+    display: inline block;
+  }
+
+  .btn-secondary:hover {
+    background-color: #71e95e92;
+  }
+
+  footer{
+    margin-bottom:auto;
+  }

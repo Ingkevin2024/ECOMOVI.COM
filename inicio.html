@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio de sesion </title>
+    <link rel="stylesheet" href="inicio.css">
+   
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul  class="list">
+                <img src="logo blanco.png" alt="observar el logo">
+                <li><a href="paginapri.html"><b>Inicio</b></a></li>
+                <li><a href="quienes.html"><b>¿Quienes somos?</b></a></li>
+                <li><a href="Inicio de Sesion Usuario.html"><b>Inicio de sesión</b></a></li>
+                <li><a href="Registro de usuario.html"><b>Regístrate</b></a></li>
+                <li><a href="https://wa.me/3202295786"><b>Contáctenos</b></a></li>
+       </ul>
+        </nav>
+    </header>
+    <br><br>
+
+    <h1><b>BIENVENIDO A TU MOVILIDAD GRUPO ECOMOVI </b><br>
+    </h1>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <div class="container">
+        <div class="card">
+            <img src="Imgen/calend.jpg" alt="Imagen 1">
+            <h3>CALENDARIO</h3>
+            <a href="cale.html"><button>Ir</button></a>
+        </div>
+        <div class="card">
+            <img src="Imgen/recomp.avif" alt="Imagen 2"  >
+            <h3>RECOMPENSAS</h3>
+            <a href="Recousua.html"><button>Ir</button></a>
+        </div>
+        <div class="card">
+            <img src="Imgen/coche-blanco-vista-frontal-aislado-fondo-negro_6689-412.avif" alt="Imagen 3">
+            <h3>VEHICULOS</h3>
+            <a href="RegistroV/RegistroV.html"><button>Ir</button></a>
+        </div>
+    </div>
+ 
+   
+        <div class="card4">
+            <img src="Imgen/movilidad.jpg" alt="Imagen 4">
+            <h3>MOVILIDAD</h3>
+            <a href="Seguimiento de movilidad.html"><button>Ir</button></a>
+            
+        </div>
+    
+
+        <div class="card5">
+            <img src="Imgen/pxntos.webp" alt="Imagen 5">
+            <h3>PUNTOS</h3>
+            <button>Ir</button>
+        </div>
+    </div>
+
+   
+    <footer class="footer2">
+        <div class="fecha" id="fecha"></div>
+    </footer>
+
+    <script>
+        // Mostrar la fecha al cargar la página
+        function mostrarFecha() {
+            const fecha = new Date();
+            const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
+            document.getElementById('fecha').innerText = fechaFormateada;
+        }
+        window.onload = mostrarFecha;
+
+        // Lógica para el modal
+        const modal = document.getElementById("myModal");
+        const openPopup = document.getElementById("openPopup");
+        const closePopup = document.getElementsByClassName("close")[0];
+
+        openPopup.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        closePopup.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <footer>
+        <div class="footer-container">
+          <div class="info">
+            <h3>Centro Administrativo:</h3>
+            <p>Lunes a viernes de 7:30 a. m. a 12:00 a.m. y de 1:30 p. m. a 5:00 p. m.</p>
+            <p>Sabado y domingo de 8:00 a.m. a 12 a.m.</p>
+          </div>
+          <div class="contacto">
+            <h3>Correo institucional para la recepción de solicitudes de información:</h3>
+            <p>atencion.ciudadana@ecomovi.gov.co</p>
+      
+          </div>
+          <div class="redes-sociales">
+            <h3>Redes Sociales</h3>
+            <p>ECO-MOVI</p>
+            <div class="social-icons">
+              <a href="#"><img src="imagess/face.jpeg" alt="Facebook"></a>
+              <a href="#"><img src="imagess/twiter.jpeg" alt="X"></a>
+              <a href="#"><img src="imagess/insta.jpeg" alt="Instagram"></a>
+              <a href="#"><img src="imagess/yout.jpeg" alt="YouTube"></a>
+              <a href="#"><img src="imagess/tiktok.jpg" alt="TikTok"></a>
+              <a href="https://wa.me/3202295786"><img src="imagess/WHATS.jpg" alt="Whatsapp"></a>
+            </div>
+      
+          </div>
+        </div>
+      </footer>
+
+     
+    
+</body>
+</html>

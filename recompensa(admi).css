@@ -1,0 +1,697 @@
+body {
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background: url(images/fonfi.jpeg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: -1;
+}
+
+header nav {
+   border: 1px solid #effcf6;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(46, 204, 113, 0.3);
+    height: 50px;
+}
+
+.titulo-recompensas {
+    font-size: 28px;
+    font-weight: bold;
+    position: sticky;
+    top: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 0.9rem;
+    margin-left: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #e8f5e9;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.titulo-recompensas {
+    font-size: 40px;
+    font-weight: bold;
+    position: sticky;
+    top: 20px;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 1rem;
+    margin-left: 30px; /* Separa el título del borde izquierdo */
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px; /* Aumenta la separación entre enlaces */
+    font-size: 2rem;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta automáticamente las columnas */
+    gap: 25px;
+    padding: 20px;
+}
+
+.recompensa {
+    background-color: #e6f3d946 !important;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px #00FF00; 
+}
+
+.recompensa img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.recompensa h3 {
+    margin: 10px 0;
+}
+
+.recompensa button {
+    padding: 8px 16px;
+    background-color:  #28a745;;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Botón Agregar mejorado */
+.botonre {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botonre::before {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.botonre:hover {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
+}
+
+.botonre:active {
+    transform: scale(0.98);
+}
+
+/* Estilo Modal */
+/* Add these styles to your CSS file */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 700;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.4s ease;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.modal-contenido {
+    background-color: rgba(230, 243, 217, 0.27) !important;
+    background-image: none !important;
+    padding: 20px 15px;
+    width: 92%;
+    max-width: 400px; /* más ancho */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: slideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto; /* 💥 esto permite scroll vertical */
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-height: 600px) {
+    .modal-contenido {
+      max-height: 95vh;
+      padding: 15px;
+    }
+  }
+  
+.modal-contenido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #2ecc71, #27ae60, #2ecc71);
+    background-size: 200% 100%;
+    animation: gradientMove 4s linear infinite;
+}
+
+.modal-contenido h2 {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-contenido input[type="text"],
+.modal-contenido input[type="number"],
+.modal-contenido textarea {
+    width: 95% !important;
+    padding: 10px !important; 
+    margin: 6px 0 !important;       
+    border: 2px solid #e9ecef;
+    border-radius: 10px; 
+    font-size: 14px !important;    
+    background: rgba(255, 255, 255, 0.95);
+    color: rgb(14, 14, 14);
+}
+
+.modal-contenido input:focus,
+.modal-contenido textarea:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.15);
+    transform: translateY(-3px);
+    background: #ffffff;
+}
+
+.modal-contenido input::placeholder,
+.modal-contenido textarea::placeholder {
+    color: rgb(14, 14, 14);
+    font-size: 14px;
+}
+
+.modal-contenido button {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    width: 100%;
+}
+
+.modal-contenido button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+.modal-contenido .file-input-wrapper {
+    margin: 20px 0;
+    padding: 25px;
+    border: 3px dashed #bdc3c7;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-contenido .file-input-wrapper:hover {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.05);
+    transform: translateY(-2px);
+}
+
+.modal-contenido .preview-image {
+    max-width: 200px;
+    border-radius: 12px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.modal-contenido .preview-image:hover {
+    transform: scale(1.05);
+}
+
+.cerrar {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.cerrar:hover {
+    color: #e74c3c;
+    transform: rotate(180deg) scale(1.2);
+}
+
+.modal-contenido input[type="text"],
+.modal-contenido input[type="number"],
+.modal-contenido textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.modal-contenido input:focus,
+.modal-contenido textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 15px rgba(76,175,80,0.2);
+    transform: translateY(-2px);
+}
+
+.modal-contenido button {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-contenido button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(76,175,80,0.4);
+}
+
+.modal-contenido button:active {
+    transform: translateY(-1px);
+}
+
+.cerrar {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #666;
+    z-index: 1;
+}
+
+.cerrar:hover {
+    color: #4CAF50;
+}
+
+.modal-contenido h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-contenido .preview-image {
+    max-width: 150px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-contenido .file-input-wrapper {
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modal-contenido .file-input-wrapper:hover {
+    border-color: #4CAF50;
+    background-color: #f9f9f9;
+}
+titulo{
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    font-family: "Ribeye Marrow", serif;
+    text-align: center;
+    flex-grow: 1;    
+}
+
+
+/* Estilos adicionales para el botón de inicio */
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos adicionales para el botón agregar */
+.botonre {
+    position: fixed;
+    bottom: 25px;
+    right: 30px;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(46, 204, 113, 0.3);
+}
+
+.botonre::before {
+    content: '+';
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+.botonre:hover {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.5);
+}
+.botonre:active {
+    transform: scale(0.98);
+}
+
+/* Estilo Modal */
+/* Add these styles to your CSS file */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 700;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.4s ease;
+    backdrop-filter: blur(8px);
+}
+
+.modal-contenido {
+    background: linear-gradient(165deg, #ffffff, #f8f9fa);
+    margin: 3% auto;
+    padding: 35px;
+    width: 92%;
+    max-width: 350px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: translateY(-50px);
+    animation: slideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-contenido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #2ecc71, #27ae60, #2ecc71);
+    background-size: 200% 100%;
+    animation: gradientMove 4s linear infinite;
+}
+
+.modal-contenido h2 {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-contenido input[type="text"],
+.modal-contenido input[type="number"],
+.modal-contenido textarea {
+    width: 100%;
+    padding: 16px;
+    margin: 15px 0;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
+}
+
+.modal-contenido input:focus,
+.modal-contenido textarea:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.15);
+    transform: translateY(-3px);
+    background: #ffffff;
+}
+
+.modal-contenido input::placeholder,
+.modal-contenido textarea::placeholder {
+    color: gray;
+    font-size: 14px;
+}
+
+.modal-contenido button {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 25px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    width: 100%;
+}
+
+.modal-contenido button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+.modal-contenido .file-input-wrapper {
+    margin: 20px 0;
+    padding: 25px;
+    border: 3px dashed #bdc3c7;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-contenido .file-input-wrapper:hover {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.05);
+    transform: translateY(-2px);
+}
+
+.modal-contenido .preview-image {
+    max-width: 200px;
+    border-radius: 12px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.modal-contenido .preview-image:hover {
+    transform: scale(1.05);
+}
+
+.cerrar {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.cerrar:hover {
+    color: #e74c3c;
+    transform: rotate(180deg) scale(1.2);
+}
+
+
+.modal-contenido input[type="text"],
+.modal-contenido input[type="number"],
+.modal-contenido textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.modal-contenido input:focus,
+.modal-contenido textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 15px rgba(76,175,80,0.2);
+    transform: translateY(-2px);
+}
+
+.modal-contenido button {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-contenido button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(76,175,80,0.4);
+}
+
+.modal-contenido button:active {
+    transform: translateY(-1px);
+}
+
+.cerrar {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #666;
+    z-index: 1;
+}
+
+.cerrar:hover {
+    color: #4CAF50;
+}
+
+.modal-contenido h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-contenido .preview-image {
+    max-width: 150px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-contenido .file-input-wrapper {
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modal-contenido .file-input-wrapper:hover {
+    border-color: #4CAF50;
+    background-color: #f9f9f9;
+}
+titulo{
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    font-family: "Ribeye Marrow", serif;
+    text-align: center;
+    flex-grow: 1;    
+}
+

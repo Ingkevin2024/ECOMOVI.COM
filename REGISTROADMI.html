@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro-supervisor</title>
+    <link rel="stylesheet" href="registro.css">
+    <link rel="icon" href="logoecomovil.png" type="icon">
+    <style>
+        .botoncito {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1000;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .botoncito:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        h2{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        .container{
+        background-color: #e6f3d97e;
+    }
+    </style>
+</head>
+
+<body>
+    <a href="paginaadministrador.html" class="botoncito">Volver</a>
+    
+    <div class="container">
+        <h2>Registro de Supervisor</h2>
+        <form id="registroForm" method="POST" action="register_supervisor.php">
+            <div class="form-group">
+                <label for="nombre"><b>Nombre Completo:</b></label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo_id"><b>Tipo de Identificación:</b></label>
+                <select id="tipo_id" name="tipo_id" required>
+                    <option value="cc">Cédula de Ciudadanía</option>
+                    <option value="ce">Cédula de Extranjería</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="num_doc_usu"><b>Número de Identificación:</b></label>
+                <input type="text" id="num_doc_usu" name="num_doc_usu" pattern="[0-9]+" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono"><b>Teléfono:</b></label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]+" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="correo"><b>Correo Electrónico:</b></label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><b>Contraseña:</b></label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit"><b>Registrar</b></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

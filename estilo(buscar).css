@@ -1,0 +1,668 @@
+body {
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background: url(images/fonfi.jpeg) no-repeat center center;
+    overflow: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0);
+            z-index: -1;
+        }
+
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 3%; /* Reducido el padding */
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0);
+            height: 100px; /* Altura fija más pequeña */
+        }
+
+        h1 {
+            color: white;
+            font-size: 24px; /* Reducido el tamaño de fuente */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            text-align: center;
+            flex: 1; /* Permite que ocupe el espacio disponible */
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 4px 20px; /* Reducido el padding */
+        }
+
+        /* Ajuste para el logo */
+        nav img {
+            width: 200px; /* Reducido el tamaño del logo */
+            height: auto;
+        }
+        
+
+        h1 {
+            color: white;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 8px 28px;
+        }
+
+        a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        #search-input {
+            padding: 12px;
+            width: 110%;
+            max-width: 580px;
+            font-size: 1.1rem;
+            border: 2px solid #125c07bc;
+            border-radius: 10px;
+            background-color: #e6f3d946;
+            color: #333;
+            transition: border-color 0.3s ease-in-out;
+            display: block;
+            margin: 30px auto; /* Aumentado el margen superior e inferior */
+            border: 2px solid #00FF00;
+            box-shadow: 0 0 10px #00FF00;
+        }
+
+        .vehicle {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .vehicle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .vehicle img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .vehicle-info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .vehicle-info p {
+            margin: 5px 0;
+            color: #000000;
+        }
+
+        #error-message {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .modal-content h2 {
+            color: #ffffff;
+            font-size: 22px;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-content li {
+            font-size: 16px;
+            color: #333;
+            margin: 8px 0;
+        }
+/* Centrar los títulos de los modales */
+.modal-content h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #000000;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+        .close {
+            color: red;
+            font-size: 24px;
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+        }
+
+        .close:hover {
+            color: darkred;
+        }
+        .vehiculo-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 🔥 3 columnas */
+            gap: 20px;
+            padding: 50px;
+        
+            overflow-y: auto;
+            justify-content: center;
+            max-height: none;  /* ❌ sin límite de altura */
+            overflow: visibe; /* ❌ sin scroll */
+            width: 100%;
+        }
+        
+
+        .vehiculo-card {
+            background-color: #e6f3d946;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 280px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            border: 2px solid #00FF00; /* Borde de 2px de color verde */
+            box-shadow: 0 0 10px #00FF00; /* Sombra verde alrededor del borde */
+            padding-bottom: 60px;
+            position: relative;
+                 
+        }
+
+        .vehiculo-card:hover {
+            transform: scale(1.05);
+        }
+
+        .vehiculo-card h3 {
+            color: #125c07;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .vehiculo-card p {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        /* Estilos para las imágenes dentro de la tarjeta */
+        .vehiculo-card img {
+            max-width: 400%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        .documentos-container {
+
+                width: 100%;
+                display: flex;
+                justify-content: center; /* Centra horizontalmente */
+                align-items: flex-start; /* Alinea arriba */
+                gap: 40px; /* Espacio entre las imágenes */
+                flex-wrap: wrap;
+                padding: 20px 0;
+                margin-top: -20px;
+            }
+
+
+            .documento-item {
+                text-align: center;
+                background: none;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin: 20px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+
+        /* Botón */
+        .btn-documentos {
+            background-color: #125c07bc;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-documentos:hover {
+            background-color:  #71e95e92;
+        }
+        .usuario-info {
+            background-color: #e6f3d946;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            max-width: 700px;
+            width: 90%; /* Se adapta a pantallas pequeñas */
+            margin: 50px auto; /* Centrado automático */
+            border: 2px solid #00FF00; /* Borde verde */
+            box-shadow: 0 0 28px #00FF00; /* Sombra verde */
+            transition: transform 0.3s ease-in-out;
+            animation: fade-in 1s ease-in-out;
+        }
+        
+
+        .usuario-info:hover {
+            transform: scale(1.02);
+        }
+
+        .usuario-info h2 {
+            color: #000000;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .usuario-info p {
+            font-size: 18px;
+            color: #333;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+
+        .btn-ver-vehiculos {
+            background-color:  #45a049;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-ver-vehiculos:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Ajuste para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .usuario-info {
+                max-width: 90%;
+                padding: 20px;
+            }
+        }
+        .usuario-no-registrado {
+            text-align: center; /* Centra el texto */
+            font-size: 20px; /* Aumenta el tamaño */
+            color: red; /* Texto en rojo */
+            font-weight: bold; /* Negrita */
+            padding: 20px; /* Espaciado */
+            background-color: #ffe6e600; /* Fondo suave rojo claro */
+            border-radius: 10px; /* Bordes redondeados */
+            margin: 20px auto; /* Centrado en la página */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0); /* Sombra suave */
+        }        
+        
+
+        .notificacion-verde {
+            display: flex; /* Habilita flexbox */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            text-align: center;
+            font-size: 20px;
+            color: #155724;
+            font-weight: bold;
+            background-color: #d4edda;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #28a745;
+            max-width: 90%; /* Limita el ancho máximo de la notificación */
+            width: auto; /* El ancho será determinado por el contenido */
+            position: absolute; /* Permite centrar verticalmente */
+            top: 90%; /* Posiciona al 50% desde arriba */
+            left: 50%; /* Posiciona al 50% desde la izquierda */
+            transform: translate(-50%, -50%); /* Ajusta para centrar completamente */
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+        
+        
+        
+            
+        
+        
+        
+        
+/* Fondo del modal */
+/* Estilo para el contenedor del modal */
+.modal {
+    display: block; /* Hacemos que el modal sea visible */
+    position: relative; /* Modal se comporta como parte del flujo de la página */
+    z-index: 1;
+    top: 0;
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado perfecto */
+    width: 90%; /* Ajusta el modal al 90% del ancho disponible */
+    max-width: 1200px; /* Máximo ancho */
+    background-color: rgba(255, 255, 255, 0); /* Fondo blanco casi opaco */
+    border-radius: 8px; /* Opcionales: esquinas redondeadas para mejor estética */
+    overflow: hidden; /* Impide que el contenido se desborde del modal */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen */
+    padding: 20px; /* Espaciado interior del modal */
+}
+/* Estilo de la "X" de cierre */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #f44336; /* Color rojo */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Cambiar el color de la "X" cuando el ratón pasa por encima */
+.close-modal:hover {
+    color: #d32f2f;
+}
+/* Contenido del modal */
+.modal-content {
+    background-color: #96b47846;
+    padding: 40px;
+    border: 1px solid #0f5320ab;
+    width: 100%; /* 100% de la anchura del contenedor */
+    max-width: 100%; /* No exceder el tamaño del contenedor */
+    max-height: 80vh; /* Altura máxima visible del modal */
+    overflow-y: auto; /* Desplazamiento solo si el contenido del modal es largo */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: aparecer 0.3s ease-out;
+    margin-top: 20px; /* Márgenes ajustados */
+    position: relative; /* Asegura que los elementos dentro estén posicionados con respecto al modal */
+    overflow: hidden;
+}
+
+
+
+/* Notificación verde (por ejemplo, de éxito) */
+.notification {
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute; /* Posicionamos la notificación dentro del modal */
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Centrado horizontal */
+    z-index: 1100;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Botón de cerrar */
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff0000;
+    cursor: pointer;
+}
+.close:hover {
+    color: black;
+}
+
+
+/* Animación solo de opacidad */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación suave */
+@keyframes aparecer {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Botón de cierre */
+/* Estilo del botón de cerrar */
+.close {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00FF00; /* Verde brillante */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    position: absolute;
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Alineado a la derecha */
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover y focus */
+.close:hover,
+.close:focus {
+   
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+   
+}
+
+/* Contenedor del modal */
+.modal-km-container {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; /* o un ancho específico */
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #53535300;
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.288);
+    overflow: hidden;
+}
+
+/* Contenido del modal */
+.modal-km-content {
+    border: 9px solid #00FF00; /* Borde verde */
+    box-shadow: 0 0 28px #00FF00; /* Sombra verde */
+    background-color: rgba(255, 255, 255, 0.811); /* Fondo oscuro con algo de transparencia */
+    color: #000000; /* Color de texto blanco para contraste */
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 250vw;
+    max-width: 800px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* Alineación horizontal para las imágenes y fechas */
+.modal-km-images {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que las imágenes se envuelvan */
+    justify-content: flex-start;
+    gap: 20px; /* Espacio entre las imágenes */
+    overflow-x: auto; /* Habilita el desplazamiento horizontal si las imágenes exceden el ancho */
+    margin-top: 20px;
+}
+
+/* Estilo de las imágenes dentro del modal */
+.modal-km-images img {
+    max-width: 100px; /* Limita el tamaño de las imágenes */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: 2px solid #ddd; /* Borde sutil alrededor de cada imagen */
+}
+
+/* Diseño para las fechas en formato horizontal */
+.modal-km-dates {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 15px; /* Espacio entre las fechas */
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Estilo para cada elemento de fecha */
+.modal-km-dates span {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Animación para que el modal se muestre suavemente */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilo cuando un documento no está disponible (color rojo) */
+.not-available {
+    background-color: #ffcccc; /* Fondo rojo claro */
+    color: #ff0000; /* Color del texto rojo */
+    border-color: #ff0000; /* Borde rojo */
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Modal Overlay (Fondo oscuro) */
+.modal-documentos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #00FF00; /* Borde verde */
+    box-shadow: 0 0 28px #00FF00; /* Sombra verde */
+    display: none;
+    position: absolute; /* Cambiado a fixed para que se quede fijo en la pantalla */
+    z-index: 1000; /* Asegura que el modal esté encima de todo */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Esto centra el modal en la pantalla */
+    width: 70%;
+    height: auto; /* Cambiado a auto para ajustar el tamaño según el contenido */
+    background-color: rgb(91, 89, 89); /* Fondo blanco */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineamos el contenido desde la parte superior */
+    flex-direction: column; /* Esto permite que los elementos estén en columna */
+    animation: fadeIn 0.3s ease-in-out; /* Animación al aparecer */
+    border-radius: 10px;
+    padding-top: 30px; /* Espacio superior para el título */
+}
+
+/* Estilo del título */
+.modal-documentos h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #118538bd;
+    text-align: center; /* Centrado del texto */
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #00cc44;
+    width: 100%;
+}
+
+
+/* Animación para que el modal se muestre suavemente */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Contenedor del Modal */
+
+
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#search-input {
+    width: 400px; /* Make search bar larger */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 46%; /* Move the button to the right */
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOMOVI-BUSCAR USUARIO</title>
+    
+    <style>
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('fondoauto.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: rgb(0, 0, 0);
+    }
+    
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        font-weight: bold;
+    }
+    
+    h1 {
+        color: rgb(255, 255, 255);
+        font-size: 45px;
+        font-family: "Ribeye Marrow", serif;
+    }
+    
+    ul li {
+        display: inline-block;
+        padding: 8px 28px;
+    }
+    
+    a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: rgb(255, 255, 255);
+    }
+    
+    .search-container {
+        text-align: center;
+        margin: 30px auto;
+    }
+    
+    #search-input {
+        padding: 10px;
+        width: 300px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    #search-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background-color: #125c07bc;;
+        color: rgb(226, 221, 221);
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    
+    .user-info {
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 0.6rem;
+        background-color: #e6f3d97b;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        max-width: 800px;
+    }
+    
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid #000000;
+        object-fit: cover;
+    }
+    
+    .vehicles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .vehicle {
+        border: 2px ;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.726); 
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .vehicle:hover {
+        transform: scale(1.05);
+    }
+    
+    .vehicle img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .vehicle-info {
+        padding: 15px;
+        text-align: left;
+    }
+    
+    .vehicle-info p {
+        margin: 5px 0;
+        color: #333;
+    }
+    
+       </style>
+</head>
+<link rel="icon" href="logoecomovil.png" type="icon">
+<body>
+    <header>
+        <nav>
+            <h1>BUSCAR USUARIO</h1>
+            <ul>
+                <li><a href="SUPERVISOR.html">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Escribe el número de Identificación...">
+        <button id="search-button">BUSCAR</button>
+    </div>
+
+    <div id="user-info" class="user-info" style="display: none;">
+        <div class="profile-section">
+            <img id="profile-pic" src="" alt="Foto de perfil" class="profile-pic">
+            <div>
+                <h2 id="user-name"></h2>
+                <p id="user-num"></p>
+            </div>
+        </div>
+        <div class="vehicles" id="vehicles-container"></div>
+        <h1 id="vehicle-count"></h1>
+    </div>
+
+    <p id="error-message" style="color: rgba(0, 0, 0, 0.986);"></p>
+
+    <script>
+        const users = {
+            '1016595662': { 
+                name: 'Sebastian Leon', 
+                profilePic: 'Se.jpg', 
+                vehicles: [
+                    { marca: 'Pulsar Dominar 400', modelo: '2025', placa: 'ZFH57R', puntos: 200000, img: 'vehiculos/Dominar 400.jpeg' },
+                    { marca: 'KTM Duke', modelo: '2025', placa: 'GHI789', puntos: 100000, img: 'vehiculos/ktm duke.jpeg' },
+                    { marca: 'BMW G3', modelo: '2025', placa: 'XYZ123', puntos: 50000, img: 'vehiculos/bmw.jpeg' },
+                    { marca: 'McLaren P1', modelo: '2021', placa: 'MUSC456', puntos: 75000, img: 'vehiculos/maclaren p1.jpeg' }
+                ]
+            },
+            '1016957664': { 
+                name: 'Kevin Sanchez', 
+                profilePic: 'icono hombre.png', 
+                vehicles: [
+                    { marca: 'McLaren', modelo: '2025', placa: 'DEF456', puntos: 300, img: 'vehiculos/mclaren.jpeg' },
+                    { marca: 'KTM Duke', modelo: '2025', placa: 'JKL012', puntos: 9000, img: 'vehiculos/ktm duke.jpeg' },
+                    { marca: 'Suzuki 150', modelo: '2022', placa: 'FER488', puntos: 1000, img: 'vehiculos/DR150-AZUL.png' },
+                    { marca: 'Yamaha Dominar 400', modelo: '2020', placa: 'CAM789', puntos: 15000, img: 'vehiculos/Dominar 400.jpeg' }
+                ]
+            },
+            '1023456789': { 
+                name: 'Natalia Lozano', 
+                profilePic: 'icon.png', 
+                vehicles: [
+                    { marca: 'BMW G3', modelo: '2024', placa: 'BMU829', puntos: 120000, img: 'vehiculos/bmw.jpeg' },
+                    { marca: 'Tesla', modelo: '2025', placa: 'TRH890', puntos: 90000, img: 'vehiculos/tesla.jpeg' }
+                ]
+            },
+            '1034567890': { 
+                name: 'Erika Botero', 
+                profilePic: 'icon.png', 
+                vehicles: [
+                    { marca: 'Tesla ', modelo: '2025', placa: 'TES459', puntos: 180000, img: 'vehiculos/tesla.jpeg' },
+                    { marca: 'kia', modelo: '2023', placa: 'ERS211', puntos: 160000, img: 'vehiculos/kia 2025.jpeg' }
+                ]
+            },
+            '123456789':{
+                name:'KEVIN RIVERA',
+                profilePic:'kevin.jpg',
+                vehicles:[
+                { marca: 'Tesla ', modelo: '2025', placa: 'KRS459', puntos: 180000, img: 'vehiculos/tesla.jpeg' },
+                { marca: 'kia', modelo: '2023', placa: 'COS211', puntos: 160000, img: 'vehiculos/kia 2025.jpeg' },
+                { marca: 'BMW G3', modelo: '2024', placa: 'ZFH892', puntos: 120000, img: 'vehiculos/bmw.jpeg' }
+                ]
+            }
+        };
+
+        document.getElementById('search-button').addEventListener('click', function () {
+            const input = document.getElementById('search-input').value;
+            const userInfo = document.getElementById('user-info');
+            const errorMessage = document.getElementById('error-message');
+            const vehiclesContainer = document.getElementById('vehicles-container');
+            const vehicleCount = document.getElementById('vehicle-count');
+            const profilePic = document.getElementById('profile-pic');
+
+            if (users[input]) {
+                const user = users[input];
+                document.getElementById('user-name').textContent = 'Nombre: ' + user.name;
+                document.getElementById('user-num').textContent = 'Número de Identificación: ' + input;
+                profilePic.src = user.profilePic || 'perfil/default.jpg'; 
+
+                vehiclesContainer.innerHTML = '';
+
+
+                user.vehicles.forEach(vehicle => {
+                    const vehicleElement = document.createElement('div');
+                    vehicleElement.classList.add('vehicle');
+                    vehicleElement.innerHTML = `
+                        <img src="${vehicle.img}" alt="Imagen de vehículo">
+                        <div class="vehicle-info">
+                            <p><strong>Marca:</strong> ${vehicle.marca}</p>
+                            <p><strong>Modelo:</strong> ${vehicle.modelo}</p>
+                            <p><strong>Placa:</strong> ${vehicle.placa}</p>
+                            <p><strong>Puntos:</strong> ${vehicle.puntos}</p>
+                        </div>
+                    `;
+                    vehiclesContainer.appendChild(vehicleElement);
+                });
+
+                vehicleCount.textContent = ` ${user.vehicles.length} vehículos registrados`;
+                userInfo.style.display = 'block';
+                errorMessage.textContent = '';
+            } else {
+                userInfo.style.display = 'none';
+                errorMessage.textContent = '⚠EL USUARIO NO ESTÁ REGISTRADO';
+            }
+        });
+    </script>
+</body>
+
+</html>
