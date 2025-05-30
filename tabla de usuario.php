@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div style='padding:40px; font-family:Arial, sans-serif; background:#f9f9f9;'>
                 <div style='max-width:600px; margin:auto; background:#fff; border-radius:8px; padding:20px; text-align:center;'>
                     <img src='https://i.ibb.co/r2MRcCG4/logofinal.png' alt='EcoMovi Logo' style='height:60px; margin-bottom:20px;'/>
-                    <h2 style='color:#27ae60; margin-bottom:10px;'>🌿 Notificación de EcoMovi</h2>
+                    <h2 style='color:#27ae60; margin-bottom:10px;'> Notificación de EcoMovi</h2>
                     <p>Has redimido exitosamente tu recompensa. El vehículo con la placa <strong style='color:#27ae60;'>$placa</strong> ha utilizado sus puntos.</p>
                     <p style='font-style:italic; color:#555; margin-top:20px;'>Gracias por confiar en nosotros y ser parte de una movilidad más ecológica.</p>
                 </div>
@@ -88,8 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "Error al enviar el correo: {$mail->ErrorInfo}";
         }
 
-        // Redirigir con parámetros para que JS deshabilite botón correcto
-        header("Location: " . $_SERVER['PHP_SELF'] . "?success=1&placa=" . urlencode($placa) . "&recompensa=" . urlencode($recompensa));
+        // Redirigir para evitar reenvío de formulario y recargar la página
+        header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
         exit();
     }
 }
@@ -150,18 +150,8 @@ if (!$resultado) {
            z-index: 1000;
        }
 
-       .modal-content h3{
-         color: black;
-         font-family:'Times New Roman', Times, serif;
-       }
-
-       .modal-content p {
-         color:black;
-         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-       }
        .modal-content {
-           background-color:white;
+           background: white;
            padding: 30px 25px;
            margin: 8% auto;
            width: 420px;
@@ -171,9 +161,12 @@ if (!$resultado) {
            border-radius: 12px;
            position: relative;
            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-           color: white;
+           color: black;
        }
 
+       .modal-content h3{
+        font-family: 'Times New Roman', Times, serif;
+       }
        .close {
            position: absolute;
            right: 20px;
@@ -207,7 +200,7 @@ if (!$resultado) {
 
 <?php if (isset($_GET['success'])): ?>
     <div style="background:#d4edda; padding:10px; margin-bottom:20px;">
-        ✅ Redención exitosa se ha enviado al correo del usuario
+         Redención exitosa se ha enviado al correo del usuario
     </div>
 <?php endif; ?>
 
@@ -234,15 +227,20 @@ if (!$resultado) {
             $placa = htmlspecialchars($fila['plac_veh']);
             $recompensa = htmlspecialchars($fila['recompensa']);
             $puntos = $fila['puntos'];
-            $redimido = isset($fila['redimido']) ? $fila['redimido'] : 0;
+            $redimido = isset($fila['redimido']) ? (int)$fila['redimido'] : 0;
 
             // Mostrar la fecha solo si fue redimido
             $fecha_hora = ($redimido && $fila['fecha_hora']) 
                 ? date("d/m/Y h:i A", strtotime($fila['fecha_hora'])) 
                 : "—";
 
-            // TODOS los botones habilitados, con onclick para mostrar modal
-            $boton = "<button class='boton-confirmar' onclick='mostrarModal(\"$placa\", \"$recompensa\", \"$puntos\", this)'>Redimir</button>";
+            if ($redimido === 1) {
+                // Botón deshabilitado si ya redimido
+                $boton = "<button class='boton-confirmar' disabled style='background-color:#a50000; cursor:not-allowed;'>Redimido</button>";
+            } else {
+                // Botón habilitado si no redimido
+                $boton = "<button class='boton-confirmar' onclick='mostrarModal(\"$placa\", \"$recompensa\", \"$puntos\", this)'>Redimir</button>";
+            }
 
             echo "<tr>
                 <td>$placa</td>
@@ -275,67 +273,31 @@ if (!$resultado) {
 </div>
 
 <script>
-    let botonActivo = null;
+function mostrarModal(placa, recompensa, puntos, btn) {
+    document.getElementById('modal-placa').textContent = placa;
+    document.getElementById('modal-recompensa').textContent = recompensa;
+    document.getElementById('modal-puntos').textContent = puntos;
 
-    function mostrarModal(placa, recompensa, puntos, boton) {
-        botonActivo = boton;
-        document.getElementById("modal-placa").innerText = placa;
-        document.getElementById("modal-recompensa").innerText = recompensa;
-        document.getElementById("modal-puntos").innerText = puntos;
-        document.getElementById("input-placa").value = placa;
-        document.getElementById("input-recompensa").value = recompensa;
-        document.getElementById("input-puntos").value = puntos;
-        document.getElementById("modal").style.display = "block";
+    document.getElementById('input-placa').value = placa;
+    document.getElementById('input-recompensa').value = recompensa;
+    document.getElementById('input-puntos').value = puntos;
+
+    document.getElementById('modal').style.display = 'block';
+}
+
+function cerrarModal() {
+    document.getElementById('modal').style.display = 'none';
+    // Se permite el submit para enviar el formulario
+    return true;
+}
+
+// Cerrar modal al hacer clic fuera de la caja
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        cerrarModal();
     }
-
-    function cerrarModal() {
-        document.getElementById("modal").style.display = "none";
-        return true;
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById("modal");
-        if (event.target === modal) {
-            cerrarModal();
-        }
-    };
-
-    // Función para deshabilitar el botón que coincide con placa y recompensa
-    function deshabilitarBoton(placa, recompensa) {
-        const botones = document.querySelectorAll('.boton-confirmar');
-        botones.forEach(btn => {
-            const onClickAttr = btn.getAttribute('onclick');
-            if (!onClickAttr) return;
-
-            const regex = /mostrarModal\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*this\)/;
-            const match = onClickAttr.match(regex);
-            if (match) {
-                const btnPlaca = match[1];
-                const btnRecompensa = match[2];
-                if (btnPlaca === placa && btnRecompensa === recompensa) {
-                    btn.disabled = true;
-                    btn.innerText = "Redimido";
-                    btn.style.backgroundColor = "#a50000";
-                    btn.style.cursor = "not-allowed";
-                }
-            }
-        });
-    }
-
-    // Al cargar la página, deshabilitamos el botón si hay parámetros GET
-    window.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const placa = urlParams.get('placa');
-        const recompensa = urlParams.get('recompensa');
-        if (placa && recompensa) {
-            deshabilitarBoton(placa, recompensa);
-        }
-    });
+};
 </script>
-
 </body>
 </html>
-
-<?php
-$conexion->close();
-?>
