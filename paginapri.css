@@ -622,7 +622,7 @@ body {
 .info-card{
   border: 3px solid #00ff00;
     box-shadow: 0 0 10px #00ff00;
-    animation: parpadeoVerde 1.5s infinite;
+    animation: parpadeoVerde 3.5s infinite;
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
       display: grid;
