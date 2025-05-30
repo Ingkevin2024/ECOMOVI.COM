@@ -150,12 +150,27 @@ if ($ya_registrado_hoy) {
         }
 
         .frase {
-            background: #e6f3d9a1;
+            background: #e6f3d9a1; /* Fondo semitransparente */
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-left: 5px solidrgb(0, 0, 0);
+
+        /* Sombra luminiscente */
+         box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 30px #00ff00;
+
         }
+    
+        @keyframes glow {
+    0% { box-shadow: 0 0 5px #00ff00; }
+    50% { box-shadow: 0 0 20px #00ff00; }
+    100% { box-shadow: 0 0 5px #00ff00; }
+}
+
+    .frase {
+    animation: glow 2s infinite;
+    }
 
         .frase strong {
             color:rgb(0, 0, 0);
@@ -234,18 +249,18 @@ if ($ya_registrado_hoy) {
         <div class="frase">
             <strong style="font-family: 'Times New Roman', Times, serif;">Registro de Movilidad</strong><br><br>
             
-            Este apartado permitirá observar y confirmar su participación en esta alternativa sostenible. 
-            <span class="highlight"> <b>A mayor cantidad de registros, mayor adquisición de puntos y por lo tanto recompensas.</b></span><br><br>
+            <b>Este apartado permitirá observar y confirmar su participación en esta alternativa sostenible. 
+            <span class="highlight"> A mayor cantidad de registros, mayor adquisición de puntos y por lo tanto recompensas.</b></span><br><br>
 
-            En este formulario se ingresará información sobre el seguimiento de su movilidad, la cual 
+            <b>En este formulario se ingresará información sobre el seguimiento de su movilidad, la cual 
             corresponde a los registros de pico y placa voluntario. Esta información se deberá diligenciar 
-            en 2 momentos del día:<br><br>
+            en 2 momentos del día:</b><br><br>
 
-            <strong>Primer momento:</strong> Se solicitará información sobre el departamento, municipio y la primera foto del kilometraje
-            de su vehículo. Suministrada la información se guardará la primera parte.<br><br>
+            <strong style="font-family: 'Times New Roman', Times, serif;">Primer Momento:</strong> <b>Se solicitará información sobre el departamento, municipio y la primera foto del kilometraje
+            de su vehículo. Suministrada la información se guardará la primera parte.</b><br><br>
 
-            <strong>Segundo momento:</strong> Se solicitará únicamente la foto del kilometraje final, y se finalizará guardando la 
-            información completa.
+            <strong style="font-family: 'Times New Roman', Times, serif;">Segundo Momento:</strong> <b>Se solicitará únicamente la foto del kilometraje final, y se finalizará guardando la 
+            información completa.</b>
         </div>
     </div>
 
