@@ -236,7 +236,7 @@ $stmt->bind_param("ssssi", $fecha_final, $hora_final, $ruta_foto_final, $puntos_
 
 
         .container {
-            background: rgba(255, 255, 255, 0.274);
+            background: #e6f3d9a1;
             padding: 20px;
             border-radius: 0.9rem;
             max-width: 400px;
